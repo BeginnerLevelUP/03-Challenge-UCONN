@@ -148,7 +148,7 @@ button[disabled] {
 
 
     /* My styling */
-      /* display:none;   */
+      /*  display:none;   */
     padding:2% 5%;
     width:fit-content;
     height:fit-content;
@@ -166,15 +166,15 @@ button[disabled] {
     margin-bottom:10%;
 }
 
-.specify,.specify form, .ammount{
+.specify,.specify form, .amount{
     margin:10%;
     display:flex;
     flex-direction: column;
 }
-.ammount{
+.amount{
     text-align:center ;
 }
-.ammount input{
+.amount input{
     margin:10% 0;
 }
 .specify form input{
