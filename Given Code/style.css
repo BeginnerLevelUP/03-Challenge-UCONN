@@ -4,11 +4,10 @@
   box-sizing: border-box;
 }
 
-html,
-body,
+
 .wrapper {
   height: 100%;
-  margin: 0;
+  margin: 20% auto;
   padding: 0;
 }
 
@@ -135,3 +134,52 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+/* CSS Above Was Given */
+/* Make my own color scheme and font  */
+
+/* Styling for the Prompt */
+.prompt{
+    /* find the place where you got this from */
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+
+    /* My styling */
+      /* display:none;   */
+    padding:2% 5%;
+    width:fit-content;
+    height:fit-content;
+    margin:5% auto;
+
+    /* z-index:1;
+    position: absolute;
+    top:10%;
+    left:25% */
+}
+
+.info{
+    border-bottom:1px solid black;
+    padding-bottom:5%;
+    margin-bottom:10%;
+}
+
+.specify,.specify form, .ammount{
+    margin:10%;
+    display:flex;
+    flex-direction: column;
+}
+.ammount{
+    text-align:center ;
+}
+.ammount input{
+    margin:10% 0;
+}
+.specify form input{
+    position: relative;
+    left:50%;
+    bottom:15px;
+}
+
