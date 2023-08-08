@@ -4,14 +4,58 @@ const passwordObject={
  alphabetLower : ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
  specialCharacters : ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '[', ']', '{', '}', '|', ';', ':', ',', '.', '/', '<', '>', '?'],
   numbersArray : [0,1, 2, 3, 4, 5, 6, 7, 8, 9,],
-  
- 
  };
- 
+
+
+
+//Logic to select
+ let passwordCharacter = [];
+ const upCase=document.querySelector('#upCase')
+ const lowCase=document.querySelector('#lowCase')
+ const special=document.querySelector('#special')
+ const num=document.querySelector('#num')
+ const checkBoxes=[upCase,lowCase,special,num]
+ // Use A loop to add multiple iterations of the same array so it can match the 128 count 
+function repeat(repeat,array){
+  for(let i=0;i<repeat;i++){
+    passwordCharacter = passwordCharacter.concat(array);
+  }
+ }
+
+const select=()=>{
+  checkBoxes.forEach(checkBoxes=>{
+    checkBoxes.addEventListener('change',()=>{
+      if (upCase.checked) {
+          repeat(5,passwordObject.alphabetUpper)
+      } else {
+        passwordCharacter = passwordCharacter.filter(char => !passwordObject.alphabetUpper.includes(char));
+      }
+      
+      if (lowCase.checked) {
+        repeat(5,passwordObject.alphabetLower)
+      } else {
+        passwordCharacter = passwordCharacter.filter(char => !passwordObject.alphabetLower.includes(char));
+      }
+      
+      if (special.checked) {
+        repeat(5,passwordObject.specialCharacters)
+      } else {
+        passwordCharacter = passwordCharacter.filter(char => !passwordObject.specialCharacters.includes(char));
+      }
+      
+      if (num.checked) {
+       repeat(13,passwordObject.numbersArray)
+      } else {
+        passwordCharacter = passwordCharacter.filter(char => !passwordObject.numbersArray.includes(char));
+      }
+    })
+  })
+  }
+select()
+
+//Generate Password
  const generatePassword=(length)=>{
- //ALL Characters placed into an array
- let passwordCharacter = [...passwordObject.alphabetLower, ...passwordObject.specialCharacters, ...passwordObject.numbersArray,...passwordObject.alphabetUpper,...passwordObject.alphabetLower, ...passwordObject.specialCharacters, ...passwordObject.numbersArray];
- 
+
  // Randomize an Array insipired from the website below
  const randomizePassword=(passwordArray)=> {
    //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array//
@@ -21,23 +65,6 @@ const passwordObject={
    }
    return passwordArray;
  } 
- 
- const upCase=document.querySelector('#upCase')
-  // Function to remove elements from an array/CheckBox Specifications
-  const removeElementsFromArray = (input,array, elements) => {
-    input.addEventListener('change',()=>{
-      if(input.checked){
-        elements.forEach((element) => {
-          const index = array.indexOf(element);
-          if (index !== -1) {
-            array.splice(index, 1);
-          }
-        });
-      }
-      }
-)
-  }
-  removeElementsFromArray(upCase,passwordCharacter,passwordObject.alphabetUpper)
  // Ammount
  const ammount=length;
  let passwordRandomize = randomizePassword([...passwordCharacter]);
@@ -52,23 +79,24 @@ const passwordObject={
 
  return passwordRandomize.join('')
  }
- 
+
+
  //Show the value of the range
  const rangeInput=document.querySelector('#rangeInput')
- //rangeInput.value=0; //(Default Value at 0)
+
  const rangeValue=document.querySelector('#rangeValue')
  
  rangeInput.addEventListener('input',()=>{
    const value=rangeInput.value
    rangeValue.textContent=value;
  })
- 
 
+ //  If the range exceeds amounts of characters 
+ while(rangeInput.value>=passwordCharacter.length && passwordCharacter.length>0){
 
+  
+}
 
- 
- 
- 
  // Assignment Code
  var generateBtn = document.querySelector("#generate");
  const specifyBtn=document.querySelector('#specify')
@@ -78,7 +106,7 @@ const passwordObject={
    var password = generatePassword(rangeInput.value);
    var passwordText = document.querySelector("#password");
  
-   passwordText.value = password;
+   passwordText.value = password+ ' '+password.length;
  
  }
  
