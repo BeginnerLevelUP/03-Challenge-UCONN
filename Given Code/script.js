@@ -91,11 +91,6 @@ select()
    rangeValue.textContent=value;
  })
 
- //  If the range exceeds amounts of characters 
- while(rangeInput.value>=passwordCharacter.length && passwordCharacter.length>0){
-
-  
-}
 
  // Assignment Code
  var generateBtn = document.querySelector("#generate");
