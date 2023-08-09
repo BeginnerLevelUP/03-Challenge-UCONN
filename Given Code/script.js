@@ -51,7 +51,7 @@ class Password {
     randomizePassword(this._content)
     
         // Ammount
-        const ammount=rangeInput.val;
+        const ammount=rangeInput.value;
         if (ammount >= password._content.length) {
         
           password._content = password._content.slice(0, ammount);
@@ -157,3 +157,24 @@ const password = new Password();
  })
 
 //---------------------------------------------------------------------------//   
+// Ideas
+// Dont forget to add user input and change the text and functionality of the generate button 
+// create that module for the footer code 
+//organize the files 
+// coopy and paste media qurier sizes from o2 challenges
+
+document.addEventListener('DOMContentLoaded', function() {
+  var rangeInput = document.querySelector('[type="range"]');
+  var h4Element = document.querySelector('h4');
+  var h4Span = document.querySelector('h4 > span');
+
+  rangeInput.addEventListener('input', function() {
+    var rangePercent = rangeInput.value;
+
+    h4Element.innerHTML = rangePercent + '<span></span>';
+    rangeInput.style.filter = 'hue-rotate(-' + rangePercent + 'deg)';
+    h4Element.style.transform = 'translateX(-50%) scale(' + (1 + rangePercent / 100) + ')';
+    h4Element.style.left = rangePercent + '%';
+    h4Span.style.filter = 'hue-rotate(-' + rangePercent + 'deg)';
+  });
+});
