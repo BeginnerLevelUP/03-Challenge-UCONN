@@ -1,3 +1,6 @@
+*{
+  transition:1.5s;
+}
 *,
 *::before,
 *::after {
@@ -22,7 +25,8 @@ body {
 }
 
 .wrapper div{
-  margin:5% auto;
+  background-color:white;
+
 }
 header {
   font-size:2.5em;
@@ -87,7 +91,7 @@ as it filves across the title appears with the lock animation now being open */
   clear: both;
 }
 
-.btn {
+.btnn {
   border: none;
   background-color:var(--primary);
   border-radius: 25px;
@@ -102,7 +106,8 @@ as it filves across the title appears with the lock animation now being open */
   text-align: center;
   cursor: pointer;
 }
-.btn:hover{
+
+.btnn:hover{
 background-color:var(--accent);
 }
 
@@ -137,6 +142,7 @@ button[disabled] {
 }
 #password:focus{
   outline-color:var(--secondary);
+  transition:none;
 }
 
 /* CSS Above Was Given */
@@ -186,7 +192,8 @@ button[disabled] {
     flex-direction: column;
 }
 .amount{
-    text-align:center ;
+    display:flex;
+    text-align:center;
 }
 .amount input{
     margin:10% 0;
@@ -200,7 +207,7 @@ button[disabled] {
 #rangeValue{
   font-size:.5em;
   position:relative;
-  top:30px
+  top:15px
 }
 
 
@@ -223,6 +230,7 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
 
 /* checkbox Styling dont forget to link to it*/
 
@@ -302,3 +310,5 @@ button[disabled] {
   left: 1.6em;
 }
 /* toggle-rect-dark end*/
+
+/* Range Styling */
