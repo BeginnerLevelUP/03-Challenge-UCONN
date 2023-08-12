@@ -13,6 +13,9 @@
   <!-- My stylesheet -->
   <link rel="stylesheet" href="/My Code/reset.css">
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Lato:ital,wght@1,100&family=Montserrat:ital@1&family=Poppins:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <header>
@@ -32,12 +35,25 @@
     </div>
 
     <div class="card-body">
+      <div class="grid">
+
       <textarea readonly
         id="password"
         placeholder="Your Secure Password"
         aria-label="Generated Password"
       ></textarea>
-      <p class="passStatus">Password Status:</p>
+
+      <div class="previousList">
+        <h2>Status</h2>
+        <ul class="passStatus">
+          <li class="lengthCheck">Length: </li>
+          <li class="typeCheck">All Types:</li>
+        </ul>
+      </div>
+
+      <div class="block"></div>
+
+    </div>
     </div>
 
     <div class="card-header">
@@ -47,60 +63,57 @@
 <div class="prompt">
 
   <article class="amount">
-    <label for="rangeInput">Amount of Characters</label>
-    <span id="rangeValue">Range Value: </span>
-    <input type="range" id="rangeInput" name="rangeInput" min="0" max="128" step="1">
+    <label for="rangeInput" id="rangeValue">Length of password</label>
+  <input type="range" class="form-range" min="0" max="128" step="1"  id="rangeInput"  name="rangeInput">
   </article>
 
   <acrticle class="specify">
     <form>
-      <label for="upCase">UpperCase</label>
-      <input type="checkbox" id="upCase" name="upCase" class="spec">
 
-      <label for="lowCase">LowerCase</label>
-      <input type="checkbox" id="lowCase" name="lowCase" class="spec">
 
-      <label for="special">Special Characters</label>
-      <input type="checkbox" id="special" name="special" class="spec">
-
-      <label for="num">Numbers</label>
-      <input type="checkbox" id="num" name="num" class="spec">
-
-        <!-- <div class="item">
+         <div class="item">
+    <label for="upCase">Uppercase</label>
 <div class="toggle-rect-color">
 <input type="checkbox" id="upCase" name="check">
-<label for="upCase"> Uppercase</label>
+<label for="upCase" class="labelChange"></label>
 </div>
 </div>
 
+
 <div class="item">
+  <label for="lowCase"  class="labelChange"> Lowercase</label>
 <div class="toggle-rect-color">
 <input type="checkbox" id="lowCase" name="check">
-<label for="lowCase"> Lowercase</label>
+<label for="lowCase"></label>
 </div>
 </div>
 
+
 <div class="item">
-<div class="toggle-rect-color">
+  <label for="special"> Special
+    <br>Characters
+  </label>
+<div class="toggle-rect-color"  class="labelChange">
 <input type="checkbox" id="special" name="check">
-<label for="special"> Special Characters</label>
+<label for="special"></label>
 </div>
 </div>
 
 <div class="item">
+  <label for="num" id="space"  class="labelChange">Numbers</label>
 <div class="toggle-rect-color">
-<input type="checkbox" id="numbers" name="check">
-<label for="numbers"> Numbers</label>
+<input type="checkbox" id="num" name="check">
+<label for="num"></label>
 </div>
-</div> -->
+</div> 
 
     </form>
   </acrticle>
 </div>
 
 <div class="card-footer">
-
   <button id="generate" class="btnn">Generate Password</button>
+  <img src="clipboard.png" id="copy">
   <!-- keep around for media qqeries
     <button id="specify" class="btn">Specifications</button> -->
   <!-- <img> find copy to clipboard icon -->
@@ -112,16 +125,29 @@
 </main>
 
 
-
 <footer>
-  <p>Damion Morgan</p>
+  <aside>
+  <h2>Damion Morgan</h2>
+</aside>
+
+<section>
   <nav>
-    <li>Email </li>
-    <li>LinkedIn </li>
-    <li>GitHub </li>
-  </nav> 
+    <ul>
+    <li class="email">Email</li>
+    <li class="LinkedIn">
+     <a href="https://www.linkedin.com/in/damion-morgan-1a8591260/" target="'_blank">LinkedIn </a> 
+    </li>
+    <li class='GitHub'>
+     <a href="https://github.com/BeginnerLevelUP" target="'_blank">GitHub</a> 
+    </li>
+  </ul>
+</nav> 
+
+</section>
+
 </footer> 
 
+</section>
 <script src="script.js"></script>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

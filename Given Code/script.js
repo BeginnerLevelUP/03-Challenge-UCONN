@@ -19,8 +19,10 @@ const generateBtn=document.querySelector('#generate')
 const checkBtn=document.querySelector('#check')
 const rangeInput=document.querySelector('#rangeInput')
 const rangeValue=document.querySelector('#rangeValue')
-const statusPassword=document.querySelector('.passStatus')
-
+const copy=document.querySelector('#copy')
+const prev=document.querySelector('#prev')
+const lcheck=document.querySelector('.lengthCheck')
+const tcheck=document.querySelector('.typeCheck')
 
 // Class To Create Multiple Passwords
 class Password {
@@ -63,7 +65,21 @@ const userPasswrord= new Password()
 userPasswrord._content=''
 //---------------------------------------------------------------------------//
 //Functions
+      //Copy to clipboard
+      
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      console.log('Text copied to clipboard:', text);
+    })
+    .catch(err => {
+      console.error('Error copying text to clipboard:', err);
+    });
+}
 
+
+
+    
       // Randomize an Array insipired from the website below
  function randomizePassword(passwordArray){
         //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array//
@@ -77,7 +93,7 @@ userPasswrord._content=''
     //Show the value of the range  make it appera above the range itself
 rangeInput.addEventListener('input',()=>{
   const value=rangeInput.value
-  rangeValue.textContent=`Range Value: ${value}`;
+  rangeValue.textContent=`Length of password: ${value}`;
             });
 
     
@@ -89,25 +105,36 @@ function passwordStrength(passWordObject){
       3) no words allowed ( Based on api dictionary - passed level 2 and now has no words from the dictionary api 
        */
         if(passWordObject.length>16){ //LeveL ONe
+          //statusPassword.setAttribute('style','color:green;')
+          lcheck.setAttribute('style','color:green;')
+          tcheck.setAttribute('style','color:green;')
           passwordText.setAttribute('style','color:green;')
                     
          if (passWordObject._upperCase && passWordObject._lowerCase && passWordObject._specialCharacters && passWordObject._numbers) { // Level Two
-          statusPassword.textContent='Password Status:'
-          statusPassword.textContent=`${statusPassword.textContent} Great Password Genereated`
-          
+          lcheck.textContent=`Length: ` 
+          tcheck.textContent=`All Types: `
+          lcheck.textContent=`${lcheck.textContent}  ✅` 
+          tcheck.textContent=`${tcheck.textContent}  ✅` 
 
         }
         else{// Level Two
-          statusPassword.textContent='Password Status:'
-        statusPassword.textContent=`${statusPassword.textContent} It is recommended that your password contains at all characters types for MAXIMUM security`;
+        lcheck.textContent=`Length: ` 
+        tcheck.textContent=`All Types: `
+        lcheck.textContent=`${lcheck.textContent}  ✅` 
+        tcheck.textContent=`${tcheck.textContent}  ❌`
+        lcheck.setAttribute('style','color:orange;')
+        tcheck.setAttribute('style','color:orange;')
         passwordText.setAttribute('style','color:orange;')
         }
        } 
       else{ // Level one 
-      statusPassword.textContent='Password Status:'
-      statusPassword.textContent=`${statusPassword.textContent} It is recommended that your password is at least 16 characters long`;
+      lcheck.textContent=`Length: ` 
+      tcheck.textContent=`All Types: `
+      lcheck.textContent=`${lcheck.textContent}  ❌` 
+      tcheck.textContent=`${tcheck.textContent}  ❌`
+      lcheck.setAttribute('style','color:red;')
+      tcheck.setAttribute('style','color:red;')
       passwordText.setAttribute('style','color:red;')
-  
       }
     }    
 
@@ -143,7 +170,7 @@ function genSelect(){
                     password.generatePassword(numbersArray,13);
                     password._numbers=true
                   } else {
-                    password._conten = password._content.filter(char => !numbersArray.includes(char));
+                    password._content = password._content.filter(char => !numbersArray.includes(char));
                     password._numbers=false
                   }
                   randomizePassword(password._content);
@@ -154,6 +181,7 @@ function genSelect(){
 
     // Logic to generate a password with all character types if no checkbox is click
 function gen(){
+  
               // Set all properties to trre
               password._upperCase=true
               password._lowerCase=true
@@ -169,23 +197,29 @@ function gen(){
           randomizePassword(password._content);
           passwordText.value = `${password._content.join('')} Password Length: ${password._content.length}`;
           passwordStrength(password);
+
+
 }
 
 // Function to handle the Generate button click event
 function handleGenerateClick() {
   if (upCase.checked || lowCase.checked || num.checked || special.checked) {
     genSelect();
+    copy.addEventListener('click', function() {
+      copyToClipboard(password._content.join(''));
+    });
   } 
   else {
     gen();
-
+    copy.addEventListener('click', function() {
+      copyToClipboard(password._content.join(''));
+    });
   }
-
+  
 }
 
 // Add event listener to the Generate button
 generateBtn.addEventListener('click', handleGenerateClick);
-
 
     //User Input 
     passwordText.addEventListener('keyup',()=>{
@@ -194,7 +228,7 @@ generateBtn.addEventListener('click', handleGenerateClick);
 
       
       
-      userPasswrord._content=passwordText.value
+      userPasswrord._content=passwordText.value 
       // Add if Statements to change boolean properties |
 
       alphabetUpper.forEach(element=>{
@@ -220,31 +254,20 @@ generateBtn.addEventListener('click', handleGenerateClick);
           userPasswrord._numbers=true;
         }
       })
-      console.log(userPasswrord)
-  passwordStrength(userPasswrord)
+      
+      copy.addEventListener('click', function() {
+        copyToClipboard(passwordText.value);
+      });
+      rangeValue.textContent=`Length of password: ${userPasswrord.length}`
+      rangeInput.value=userPasswrord.length
+      passwordStrength(userPasswrord)
     })
 
-      
+    // Previous Icon
+    prev.addEventListener('click',()=>{
+
+    })
+    
+  
 //---------------------------------------------------------------------------//   
-// Ideas
 
-// create that module for the footer code 
-//organize the files 
-// coopy and paste media qurier sizes from o2 challenges
-// copy to clipboard thing
-//---------------------------------------------------------------------------//
-// document.addEventListener('DOMContentLoaded', function() {
-//   var rangeInput = document.querySelector('[type="range"]');
-//   var h4Element = document.querySelector('h4');
-//   var h4Span = document.querySelector('h4 > span');
-
-//   rangeInput.addEventListener('input', function() {
-//     var rangePercent = rangeInput.value;
-
-//     h4Element.innerHTML = rangePercent + '<span></span>';
-//     rangeInput.style.filter = 'hue-rotate(-' + rangePercent + 'deg)';
-//     h4Element.style.transform = 'translateX(-50%) scale(' + (1 + rangePercent / 100) + ')';
-//     h4Element.style.left = rangePercent + '%';
-//     h4Span.style.filter = 'hue-rotate(-' + rangePercent + 'deg)';
-//   });
-// });
