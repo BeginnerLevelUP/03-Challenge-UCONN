@@ -253,9 +253,7 @@ filter:brightness(50%)
     border: 1px solid rgba(255, 255, 255, 0.3); 
    grid-area:2/2/3/2;
 }
-.email:hover:after{
-  content:' morgandamion5680@gmail.com'
-}
+
 .block{
   display:none;
 }
