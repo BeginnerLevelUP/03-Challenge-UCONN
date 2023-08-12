@@ -31,7 +31,7 @@ body {
 header {
   font-size:2.5em;
   text-align: center;
-  padding:5%;
+  padding:1%;
   font-family:var(--headFont);
 }
 header h1{
@@ -233,8 +233,8 @@ filter:brightness(50%)
  /* Previous */
  .grid{
   display:grid;
-  grid-template-columns:550px  350px;
-  grid-template-rows:400px 200px ;
+  grid-template-columns:350px  250px;
+  grid-template-rows:400px 150px ;
   gap:20px
 }
 .grid h2{
@@ -357,11 +357,52 @@ input[type="range"]::-webkit-slider-thumb:active{
 }
 
 
- 
+.flex{
+  display: flex;
+  justify-content: center;
+}
 
 @media only screen and (max-width:991px) and (min-width:768px){
+  .flex{
+    display:flex;
+  }
   *{
     transition:.5;
+  }
+  header h1{
+    font-size:1em;
+
+    }
+    header h2{
+      font-size:.5em;
+    }
+    
+    .card{
+      max-width: 900px;
+    }
+
+    .card-header{
+      font-size:1em;;
+    }
+
+    footer{
+      width:650px;
+      height:100px;
+      padding:2.5%;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:260px  250px;
+      grid-template-rows:300px 150px ;
+      gap:20px
+    }
+    #space{
+      margin-left:2%;
+    }
+}
+@media only screen and (max-width: 767px){
+  .flex{
+    display:block;
   }
   header h1{
     font-size:1em;
@@ -380,43 +421,13 @@ input[type="range"]::-webkit-slider-thumb:active{
     }
 
     footer{
-      width:600px;
-      height:70px;
+      width:fit-content;
+      height:85px;
       padding:2.5%;
     }
     .grid{
       display:grid;
-      grid-template-columns:260px  250px;
-      grid-template-rows:300px 150px ;
-      gap:20px
-    }
-}
-@media only screen and (max-width: 767px){
-
-  header h1{
-    font-size:1em;
-
-    }
-    header h2{
-      font-size:.5em;
-    }
-    
-    .card{
-      max-width: 800px;
-    }
-
-    .card-header{
-      font-size:1em;;
-    }
-
-    footer{
-      width:600px;
-      height:70px;
-      padding:2.5%;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:150px 150px  320px;
+      grid-template-columns:150px 150px 200px;
       grid-template-rows:150px 300px;
     }
     #password{
