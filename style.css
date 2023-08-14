@@ -423,15 +423,10 @@ input[type="range"]::-webkit-slider-thumb:active{
       height:85px;
       padding:2.5%;
     }
-    .grid{
-      display:grid;
-      grid-template-columns:150px 150px 200px;
-      grid-template-rows:150px 300px;
-    }
+
     #password{
-      grid-area:1/2/3/4;
+      height:inherit;
+      width:inherit;
+      margin:0 auto;
     }
-    .previousList{
-     grid-area:1/2/1/1;
-  } 
 }
