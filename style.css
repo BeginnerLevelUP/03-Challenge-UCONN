@@ -78,6 +78,7 @@ as it filves across the title appears with the lock animation now being open */
 
 .card-footer {
   display:flex;
+  justify-content: center;
   margin:0 auto;
 }
 
@@ -411,7 +412,7 @@ input[type="range"]::-webkit-slider-thumb:active{
     }
     
     .card{
-      max-width: 800px;
+      max-width: 900px;
     }
 
     .card-header{
@@ -426,7 +427,7 @@ input[type="range"]::-webkit-slider-thumb:active{
 
     #password{
       height:inherit;
-      width:inherit;
+      width:500px;
       margin:0 auto;
     }
     footer{
