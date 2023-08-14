@@ -1,4 +1,4 @@
-*{
+ƒ*{
   transition:1.5s;
   font-family:var(--regFont);
 }
@@ -77,14 +77,14 @@ as it filves across the title appears with the lock animation now being open */
 }
 
 .card-footer {
-  text-align: center;
+  display:flex;
+  margin:0 auto;
 }
 
 .card-footer img{
   position: relative;
   top:15px;
   height:50px;
-  width:fit-content;
 }
 
 
@@ -429,4 +429,17 @@ input[type="range"]::-webkit-slider-thumb:active{
       width:inherit;
       margin:0 auto;
     }
-}
+    footer{
+      display:block;
+      width:600px;
+      height:fit-content;
+      padding:1%;
+      background-color: hsl(0, 50%, 40%);
+    }
+    footer section  nav li{
+      display:block;
+      }
+      footer h2{
+        text-align:center;
+      }
+  }

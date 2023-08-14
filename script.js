@@ -40,8 +40,8 @@ const passwordObject={
  // Write password to the #password input
  function writePassword() {
   const lengthPrompt=prompt('What is the desired length of your password (8-128)')
-  if(lengthPrompt>128 || lengthPrompt<0){
-    alert('Invalid length')
+  if(lengthPrompt<128 || lengthPrompt>0){
+    alert(`Your Password will have ${lengthPrompt} ammount of characters`)
   }
   else if(lengthPrompt!=passwordObject.numbersArray){
     alert('Invalid length')
