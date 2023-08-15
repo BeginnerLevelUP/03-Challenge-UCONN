@@ -268,6 +268,5 @@ generateBtn.addEventListener('click', handleGenerateClick);
 
     })
     
-  
 //---------------------------------------------------------------------------//   
 
